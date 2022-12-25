@@ -1,11 +1,16 @@
 <template>
     <div class="container">
         <Header />
+        <Tasks @toggle-reminder="toggleReminder"
+               @delete-task="deleteTask" 
+               :tasks="tasks"/>
     </div>
 </template>
 
 <script>
 import Header from "./components/Header.vue"
+import Tasks from "./components/Tasks.vue"
+
 
 export default {
     data()
@@ -14,8 +19,48 @@ export default {
             tasks:[],
         }
     },
+  
+    created()
+    {
+        this.tasks=[
+            {
+                id:1,
+                text:'DOC',
+                day:'March 1',
+                reminder:true,
+            },
+            {
+                id:2,
+                text:'DOC1',
+                day:'March 2',
+                reminder:true,
+            },
+            {
+                id:3,
+                text:'DOC2',
+                day:'March 3',
+                reminder:false,
+            }
+        ]
+    },  
+    methods:{
+        toggleReminder(id)
+        {
+            this.tasks.map((task)=>{
+                if(task.id==id)
+                {
+                    task.reminder=!task.reminder;
+                }
+            });
+        },
+        deleteTask(id)
+        {
+            this.tasks=this.tasks.filter((task)=>task.id!==id);
+        }   
+    }
+    ,
     name: "App",
-    components: {Header},
+    components: {Header,Tasks},
 }
 </script>
 
