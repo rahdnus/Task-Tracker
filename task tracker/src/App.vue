@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <Header />
+        <Header @add-task="addTask" />
         <Tasks @toggle-reminder="toggleReminder"
                @delete-task="deleteTask" 
                :tasks="tasks"/>
@@ -22,28 +22,19 @@ export default {
   
     created()
     {
-        this.tasks=[
-            {
-                id:1,
-                text:'DOC',
-                day:'March 1',
-                reminder:true,
-            },
-            {
-                id:2,
-                text:'DOC1',
-                day:'March 2',
-                reminder:true,
-            },
-            {
-                id:3,
-                text:'DOC2',
-                day:'March 3',
-                reminder:false,
-            }
-        ]
+        const newtask=JSON.parse(localStorage.getItem('tasks'));
+        this.tasks=newtask.length == 0?[{ text: "Add a New Task!",
+            day: "Today",
+            reminder: false}]:newtask;
+    
+     
     },  
     methods:{
+        addTask(newtask)
+        {
+            this.tasks=this.tasks?[...this.tasks,newtask]:[newtask];
+            localStorage.setItem('tasks',JSON.stringify(this.tasks))
+        },
         toggleReminder(id)
         {
             this.tasks.map((task)=>{
@@ -56,6 +47,7 @@ export default {
         deleteTask(id)
         {
             this.tasks=this.tasks.filter((task)=>task.id!==id);
+            localStorage.setItem('tasks',JSON.stringify(this.tasks))
         }   
     }
     ,
@@ -80,10 +72,12 @@ body {
   left: 50%;
   background-color: white;
   transform: translate(-50%, -50%);
-  max-width: 500px;
+  min-width: 500px;
+
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
+
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
