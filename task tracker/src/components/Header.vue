@@ -76,7 +76,7 @@ header {
 }
 
 .add-form {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .form-control {

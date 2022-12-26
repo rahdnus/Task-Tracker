@@ -1,9 +1,12 @@
 <template>
     <div class="container">
         <Header @add-task="addTask" />
-        <Tasks @toggle-reminder="toggleReminder"
+        <div class="tasks">
+            <Tasks @toggle-reminder="toggleReminder"
                @delete-task="deleteTask" 
                :tasks="tasks"/>
+        </div>
+   
     </div>
 </template>
 
@@ -23,7 +26,7 @@ export default {
     created()
     {
         const newtask=JSON.parse(localStorage.getItem('tasks'));
-        this.tasks=newtask.length == 0?[{ text: "Add a New Task!",
+        this.tasks=!newtask||newtask.length == 0?[{ text: "Add a New Task!",
             day: "Today",
             reminder: false}]:newtask;
     
@@ -43,6 +46,8 @@ export default {
                     task.reminder=!task.reminder;
                 }
             });
+            localStorage.setItem('tasks',JSON.stringify(this.tasks))
+
         },
         deleteTask(id)
         {
@@ -66,6 +71,10 @@ export default {
 body {
   font-family: 'Poppins', sans-serif;
 }
+.tasks{
+  overflow: auto;
+  max-height: 300px;
+}
 .container {
   position: fixed;
   top: 50%;
@@ -77,7 +86,7 @@ body {
   margin: 30px auto;
   overflow: auto;
   min-height: 300px;
-
+    
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
