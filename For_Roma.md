@@ -33,6 +33,6 @@ Cassius stares in disbelief. He could not comprehend the words that had just bee
 # AFTERWORD
 
 Originally Emperor Caligula was assassinated by Cassius and a few members of the senate,notably Marcius and Lucius. Shortly after the assassination Cassius was one of the assassins to be executed. Other involved parties got away with little to no repercussions which sounded a little fishy to me.
-I took some creative liberty in retelling this event and decided to make Cassius completely innocent. By the end of this story he has been falsely accused by the Senate who are the actual perpetrators and as such is executed for his crimes. I wanted to depict a more cruel version of history where those in power control the narrative.
+I took some creative liberty in retelling this event and decided to make Cassius completely innocent.I also added a fictional character Rubrius as there seem to be no notable militia tribunals at the time period apart from Cassius. By the end of this story he has been falsely accused by the Senate who are the actual perpetrators and as such is executed for his crimes. I wanted to depict a more cruel version of history where those in power control the narrative.
 
 
