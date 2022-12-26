@@ -29,9 +29,6 @@ Cassius stares in disbelief. He could not comprehend the words that had just bee
 “Cassius ,Friend, for your crimes against the empire the magistrate has deemed you guilty of regicide. As such you are to be executed. For Rome.”
 
 <h2 style="text-align: center;">THE END</h2>
-<br>
-<br>
-<br>
 
 # AFTERWORD
 
